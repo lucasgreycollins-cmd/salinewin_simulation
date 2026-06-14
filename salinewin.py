@@ -35,14 +35,16 @@ class SalineWinSimulation:
         pygame.display.set_caption("SalineWin Simulation")
         self.clock = pygame.time.Clock()
         
+        # Initialize audio state
+        self.sound = None
+        self.sound_playing = False
+        
         # Load audio
         try:
             self.sound = pygame.mixer.Sound(AUDIO_FILE)
-            self.sound_playing = False
         except Exception as e:
             print(f"Failed to load audio file: {e}")
             print(f"Make sure '{AUDIO_FILE}' is in the same directory as this script.")
-            self.sound = None
         
         # Font setup
         self.font_large = pygame.font.SysFont("courier", 48, bold=True)
